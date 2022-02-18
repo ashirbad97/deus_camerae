@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Dob</th>
+            <th>FileName</th>
+            <th>Download</th>
+        </tr>
+        {{#each subjectsList}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.phone}}</td>
+            <td>{{this.bdate}}</td>
+            <td>{{this.fileName}}</td>
+            <td>
+                {{!-- <button id={{this.filePath}} onclick="playVideo('{{this.filePath}}')">Play</button> --}}
+                <button onclick="download('{{this.fileName}}')">Download</button>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    {{!-- <video id="player" controls></video> --}}
+    <script>
+        var download = (fileName) => {
+            filePathDownload = "/tempUpload/" + fileName
+            //window.location.href = filePathDownload
+            window.open(filePathDownload, "_blank")
+
+            //var player = document.getElementById('player');
+            //var playVideo = (filePath) => {
+            //    console.log("Filepath is ", filePath)
+            //    player.src = URL.createObjectURL(filePath)
+            //}
+        }
+    </script>
+</body>
+
+</html>
