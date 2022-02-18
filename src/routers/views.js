@@ -32,6 +32,15 @@ router.get('/', async (req, res) => {
 
 })
 
+router.get('/questions', async (req, res) => {
+    try {
+        res.render('questions')
+    } catch (e) {
+        console.log(e)
+    }
+
+})
+
 router.get('/admin', async (req, res) => {
     try {
         subjectsList = await Subjects.find()
